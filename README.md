@@ -1,36 +1,118 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+# Mini Restaurant
+
+A restaurant website built with **Next.js, TypeScript, and Sanity CMS** as a learning project focused on modern web development and headless content management.
+
+The application allows restaurant content to be managed through Sanity Studio without modifying the frontend code.
+
+## Features
+
+- **Homepage:** Displays featured dishes managed through Sanity.
+- **Menu:** Shows available dishes with interactive category filtering.
+- **Dynamic dish pages:** Individual pages with descriptions, images, prices, and availability.
+- **About page:** Restaurant information and images managed through Sanity.
+- **Sanity Studio:** Embedded content management interface at `/studio`.
+- **Responsive design:** Built using CSS Modules.
+
+## Tech Stack
+
+- **Next.js 16** — App Router and Server Components
+- **React** — User interface
+- **TypeScript** — Static typing
+- **Sanity CMS** — Headless content management
+- **GROQ** — Query language for Sanity
+- **CSS Modules** — Component-scoped styling
+- **pnpm** — Package manager
 
 ## Getting Started
 
-First, run the development server:
+### 1. Clone the repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone  https://github.com/lauralabs/mini-restaurant.git 
+cd mini-restaurant
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Install dependencies
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Make sure Node.js and pnpm are installed.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+pnpm install
+```
 
-## Learn More
+### 3. Configure environment variables
 
-To learn more about Next.js, take a look at the following resources:
+Create a `.env.local` file in the project root:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```env
+NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id
+NEXT_PUBLIC_SANITY_DATASET=production
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Replace the example values with your Sanity project configuration.
 
-## Deploy on Vercel
+### 4. Run the development server
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+pnpm dev
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Open [http://localhost:3000](http://localhost:3000) to view the website.
+
+Sanity Studio is available at [http://localhost:3000/studio](http://localhost:3000/studio).
+
+## Project Structure
+
+```text
+app/
+├── about/
+├── lib/
+├── menu/
+│   └── [slug]/
+├── studio/
+├── ui/
+├── layout.tsx
+└── page.tsx
+
+sanity/
+├── lib/
+└── schemaTypes/
+```
+
+- `app/` — Application routes, layouts, components, styles, and data-fetching logic.
+- `sanity/` — Sanity schemas, client configuration, and utilities.
+
+## Production Build
+
+To create an optimized production build:
+
+```bash
+pnpm build
+```
+
+To run the production server:
+
+```bash
+pnpm start
+```
+
+## What I Learned
+
+This project helped me practice:
+
+- Next.js App Router and file-based routing.
+- Server Components and Client Components.
+- Dynamic routes and route parameters.
+- TypeScript types and interfaces.
+- GROQ queries and Sanity data fetching.
+- Content management with Sanity Studio.
+- Data caching and revalidation.
+- Reusable components and CSS Modules.
+- Production builds and TypeScript validation.
+
+## Project Purpose
+
+Mini Restaurant is a personal learning project created to explore the integration of **Next.js and Sanity CMS**.
+
+It also serves as preparation for developing a real restaurant website with editable content and a maintainable architecture.
