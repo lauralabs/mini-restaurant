@@ -7,6 +7,7 @@ import { CATEGORIES_QUERY,
 
         } from './queries'
 import { cacheLife } from 'next/cache'
+import type { Dish } from './definitions'
 
 export async function getCategories() {
      'use cache'
@@ -29,8 +30,8 @@ export async function getDishBySlug(slug: string) {
   return await client.fetch(DISH_BY_SLUG_QUERY, { slug })
 }
 
-export async function getFeaturedDishes() {
-     'use cache'
+export async function getFeaturedDishes(): Promise<Dish[]> {
+  'use cache'
   cacheLife('minutes')
 
   return await client.fetch(FEATURED_DISHES_QUERY)

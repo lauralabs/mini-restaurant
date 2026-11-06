@@ -4,7 +4,7 @@ import { useState } from 'react'
 import type { Category, Dish } from '@/app/lib/definitions'
 import DishCard from './dish-card'
 import styles from './menu-filter.module.css'
-console.log('CSS Modules:', styles)
+
 type MenuFilterProps = {
   categories: Category[]
   dishes: Dish[]
