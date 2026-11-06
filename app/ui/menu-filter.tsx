@@ -3,7 +3,8 @@
 import { useState } from 'react'
 import type { Category, Dish } from '@/app/lib/definitions'
 import DishCard from './dish-card'
-
+import styles from './menu-filter.module.css'
+console.log('CSS Modules:', styles)
 type MenuFilterProps = {
   categories: Category[]
   dishes: Dish[]
@@ -24,9 +25,12 @@ export default function MenuFilter({
 
   return (
     <section>
-      <div>
+      <div  className={styles.filters}>
         <button
           type="button"
+          className={`${styles.button} ${
+            selectedCategory === 'all' ? styles.active : ''
+          }`}
           onClick={() => setSelectedCategory('all')}
         >
           All
@@ -36,6 +40,9 @@ export default function MenuFilter({
           <button
             key={category._id}
             type="button"
+            className={`${styles.button} ${
+              selectedCategory === category._id ? styles.active : ''
+            }`}
             onClick={() => setSelectedCategory(category._id)}
           >
             {category.name}
@@ -43,7 +50,7 @@ export default function MenuFilter({
         ))}
       </div>
 
-      <div>
+      <div className={styles.grid}>
         {filteredDishes.map((dish) => (
           <DishCard key={dish._id} dish={dish} />
         ))}

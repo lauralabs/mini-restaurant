@@ -1,0 +1,19 @@
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 64px 24px;
+}
+
+.title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: -0.04em;
+  margin: 0 0 12px;
+}
+
+.subtitle {
+  color: #78867e;
+  text-align: center;
+  margin: 0 0 48px;
+}
