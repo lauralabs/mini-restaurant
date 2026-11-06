@@ -53,7 +53,7 @@ export const dishType = defineType({
         }),
 
         defineField({
-            name: 'isFeautured',
+            name: 'isFeatured',
             title: 'Featured Dish',
             type: 'boolean',
             initialValue: false,

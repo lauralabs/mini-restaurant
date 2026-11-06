@@ -45,3 +45,20 @@ export const DISH_BY_SLUG_QUERY = defineQuery(`
     }
   }
 `)
+export const FEATURED_DISHES_QUERY = defineQuery(`
+  *[_type == "dish" && isFeatured == true && isAvailable == true] {
+    _id,
+    name,
+    slug,
+    description,
+    price,
+    image,
+    isFeatured,
+    isAvailable,
+    category->{
+      _id,
+      name,
+      slug
+    }
+  }
+`)
