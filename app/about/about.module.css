@@ -1,0 +1,52 @@
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.text h1 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  margin: 16px 0 24px;
+}
+
+.text p {
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.imageContainer {
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 48px 20px;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}

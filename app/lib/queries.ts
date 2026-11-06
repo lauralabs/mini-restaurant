@@ -62,3 +62,14 @@ export const FEATURED_DISHES_QUERY = defineQuery(`
     }
   }
 `)
+
+
+export const RESTAURANT_INFO_QUERY = defineQuery(`
+
+ *[_type == "restaurantInfo"][0] {
+    _id,
+    title,
+    description,
+    image
+  }
+`)

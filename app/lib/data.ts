@@ -1,5 +1,11 @@
 import { client } from '@/sanity/lib/client'
-import { CATEGORIES_QUERY, DISHES_QUERY, FEATURED_DISHES_QUERY, DISH_BY_SLUG_QUERY } from './queries'
+import { CATEGORIES_QUERY,
+         DISHES_QUERY,
+         FEATURED_DISHES_QUERY, 
+         DISH_BY_SLUG_QUERY,
+         RESTAURANT_INFO_QUERY
+
+        } from './queries'
 import { cacheLife } from 'next/cache'
 
 export async function getCategories() {
@@ -28,4 +34,11 @@ export async function getFeaturedDishes() {
   cacheLife('minutes')
 
   return await client.fetch(FEATURED_DISHES_QUERY)
+}
+
+export async function getRestaurantInfo() {
+  'use cache'
+  cacheLife('minutes')
+
+  return await client.fetch(RESTAURANT_INFO_QUERY)
 }
