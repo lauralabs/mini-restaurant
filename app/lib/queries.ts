@@ -27,3 +27,21 @@ export const DISHES_QUERY = defineQuery(`
     }
   }
 `)
+
+export const DISH_BY_SLUG_QUERY = defineQuery(`
+  *[_type == "dish" && slug.current == $slug][0] {
+    _id,
+    name,
+    slug,
+    description,
+    price,
+    image,
+    isFeatured,
+    isAvailable,
+    category->{
+      _id,
+      name,
+      slug
+    }
+  }
+`)

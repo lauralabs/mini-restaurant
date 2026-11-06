@@ -23,3 +23,14 @@ export type Dish = {
     }
   }
 }
+
+
+export type Category = {
+  _id: string
+  name: string
+  slug: {
+    current: string
+  }
+  description?: string
+  order?: number
+}

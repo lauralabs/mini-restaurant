@@ -1,18 +1,19 @@
-import { getDishes } from '@/app/lib/data'
-import DishCard from '@/app/ui/dish-card'
+import { getDishes, getCategories} from '@/app/lib/data'
+import MenuFilter from '@/app/ui/menu-filter'
 
 export default async function MenuPage() {
-  const dishes = await getDishes()
+  const [categories, dishes] = await Promise.all([
+    getCategories(),
+    getDishes(),
+  ])
 
   return (
     <main>
       <h1>Our Menu</h1>
 
-      <div>
-        {dishes.map((dish) => (
-          <DishCard key={dish._id} dish={dish} />
-        ))}
-      </div>
+      <MenuFilter categories={categories} dishes={dishes} />
+
+      
     </main>
   )
 }
